@@ -22,7 +22,7 @@ public class CutieSoul extends JFrame {
 	private ImageIcon startButtonBasicImage = new ImageIcon(Main.class.getResource("../images/startButtonBasic.png"));
 	private ImageIcon quitButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/quitButtonEntered.png"));
 	private ImageIcon quitButtonBasicImage = new ImageIcon(Main.class.getResource("../images/quitButtonBasic.png"));
-	private Image introBackground = new ImageIcon(Main.class.getResource("../images/introBackGraound(Title).jpg"))
+	private Image background = new ImageIcon(Main.class.getResource("../images/introBackground(Title).jpg"))
 			.getImage();
 	private JLabel menuBar = new JLabel(new ImageIcon(Main.class.getResource("../images/menuBar.png")));
 	private JButton exitButton = new JButton(exitButtonBasicImage);
@@ -95,7 +95,11 @@ public class CutieSoul extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
 				buttonEnteredMusic.start();
-				//게임 시작 이벤트
+				startButton.setVisible(false);
+				quitButton.setVisible(false);
+				background=new ImageIcon(Main.class.getResource("../images/mainBackground.jpg"))
+						.getImage();
+				
 			}
 		});
 		add(startButton);
@@ -167,7 +171,7 @@ public class CutieSoul extends JFrame {
 	}
 
 	public void screenDraw(Graphics g) {
-		g.drawImage(introBackground, 0, 0, null);
+		g.drawImage(background, 0, 0, null);
 		paintComponents(g);
 		this.repaint();
 	}
